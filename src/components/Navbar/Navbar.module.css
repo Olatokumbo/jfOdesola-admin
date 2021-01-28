@@ -1,0 +1,10 @@
+.logo{
+    text-decoration: none;
+    flex: 1;
+}
+
+.logo > p{
+    font-weight: 500 !important;
+    font-size: large !important;
+    color: white !important;
+}
