@@ -14,11 +14,11 @@ const Home = () => {
       <Navbar />
       <div className={style.content}>
         <Grid container justify="center" className={style.grid}>
-          <MenuCard title="About" icon={PersonIcon}/>
-          <MenuCard title="Books" icon={MenuBookIcon}/>
-          <MenuCard title="Faith Lift" icon={MovieIcon} />
-          <MenuCard title="Gallery" icon={PhotoIcon} />
-          <MenuCard title="Socials" icon={ForumIcon}/>
+          <MenuCard title="About" icon={PersonIcon} url="/about"/>
+          <MenuCard title="Books" icon={MenuBookIcon} url="/books"/>
+          <MenuCard title="Faith Lift" icon={MovieIcon} url="/faithlift" />
+          <MenuCard title="Gallery" icon={PhotoIcon} url="/gallery"/>
+          <MenuCard title="Socials" icon={ForumIcon} url="/socials"/>
         </Grid>
       </div>
     </div>
