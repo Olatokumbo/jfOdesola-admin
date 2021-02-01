@@ -15,9 +15,9 @@ const Home = () => {
       <div className={style.content}>
         <Grid container justify="center" className={style.grid}>
           <MenuCard title="About" icon={PersonIcon} url="/about"/>
-          <MenuCard title="Books" icon={MenuBookIcon} url="/books"/>
+          {/* <MenuCard title="Books" icon={MenuBookIcon} url="/books"/> */}
           <MenuCard title="Faith Lift" icon={MovieIcon} url="/faithlift" />
-          <MenuCard title="Gallery" icon={PhotoIcon} url="/gallery"/>
+          {/* <MenuCard title="Gallery" icon={PhotoIcon} url="/gallery"/> */}
           <MenuCard title="Socials" icon={ForumIcon} url="/socials"/>
         </Grid>
       </div>
