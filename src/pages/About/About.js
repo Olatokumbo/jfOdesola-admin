@@ -4,7 +4,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import style from "./About.module.css";
 
 const About = () => {
-  const [data, setData] = useState({});
+  // const [data, setData] = useState({});
   const [aboutHeader1, setAboutHeader1] = useState("");
   const [aboutHeader2, setAboutHeader2] = useState("");
   const [aboutInfo, setAboutInfo] = useState("");

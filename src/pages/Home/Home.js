@@ -1,9 +1,9 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
 import PersonIcon from '@material-ui/icons/Person';
-import MenuBookIcon from '@material-ui/icons/MenuBook';
+// import MenuBookIcon from '@material-ui/icons/MenuBook';
 import MovieIcon from '@material-ui/icons/Movie';
-import PhotoIcon from '@material-ui/icons/Photo';
+// import PhotoIcon from '@material-ui/icons/Photo';
 import ForumIcon from '@material-ui/icons/Forum';
 import Navbar from "../../components/Navbar/Navbar";
 import MenuCard from "../../components/MenuCard/MenuCard";

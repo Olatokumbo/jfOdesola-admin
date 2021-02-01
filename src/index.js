@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import authReducer from "./store/reducers/auth";
+import { auth } from "./firebase/firebase";
 import App from "./App";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -23,3 +24,12 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+
+auth.onAuthStateChanged((user)=>{
+    if(user){
+        console.log("Signed in");
+    }
+    else{
+        console.log("Signed out")
+    }
+})

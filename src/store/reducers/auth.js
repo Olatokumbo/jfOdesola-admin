@@ -1,4 +1,4 @@
-import * as actionCreator from "../actions/actionCreator";
+import * as actionTypes from "../actions/actionTypes";
 const initialState = {
     auth: false,
     message: null
@@ -6,25 +6,25 @@ const initialState = {
 
 const authReducer = (state = initialState, action) =>{
     switch (action.type) {
-        case actionCreator.SIGNIN_SUCCESS:
+        case actionTypes.SIGNIN_SUCCESS:
             return{
                 ...state,
                 auth: true,
                 message:null
             }
-        case actionCreator.SIGNIN_FAILED:
+        case actionTypes.SIGNIN_FAILED:
             return{
                 ...state,
                 auth: false,
                 message: action.message
             }
-        case actionCreator.SIGNOUT_SUCCESS:
+        case actionTypes.SIGNOUT_SUCCESS:
             return{
                 ...state,
                 auth: false,
                 message: null
             }
-        case actionCreator.SIGNOUT_FAILED:
+        case actionTypes.SIGNOUT_FAILED:
             return{
                 ...state,
                 message: action.message
