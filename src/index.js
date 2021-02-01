@@ -5,6 +5,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import authReducer from "./store/reducers/auth";
 import { auth } from "./firebase/firebase";
+import * as actionTypes from "./store/actions/actionTypes";
 import App from "./App";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -18,18 +19,17 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk))
 );
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById("root")
-);
-
-auth.onAuthStateChanged((user)=>{
-    if(user){
-        console.log("Signed in");
-    }
-    else{
-        console.log("Signed out")
-    }
-})
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    console.log("Signed in", user);
+    store.dispatch({ type: actionTypes.SIGNIN_SUCCESS, auth: true });
+    ReactDOM.render(
+      <Provider store={store}>
+        <App />
+      </Provider>,
+      document.getElementById("root")
+    );
+  } else {
+    console.log("Signed out");
+  }
+});

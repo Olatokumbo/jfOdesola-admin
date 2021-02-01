@@ -1,8 +1,16 @@
-import React from "react";
+import React, {useState} from "react";
 import { TextField, Button, Typography } from "@material-ui/core";
 import { connect } from "react-redux";
+import * as actionCreator from "../../store/actions";
 import style from "./Signin.module.css";
-const Signin = ({error}) => {
+const Signin = ({error, startSignin}) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] =useState(""); 
+
+  const signin = () =>{
+    startSignin({email, password})
+  } 
+
   return (
     <div className={style.main}>
       <div className={style.signinContainer}>
@@ -11,7 +19,7 @@ const Signin = ({error}) => {
           <div className={style.brand}>
             <Typography variant="h6">JF Odesola (Admin)</Typography>
           </div>
-          <form className={style.form}>
+          <div className={style.form}>
             <TextField
               name="email"
               type="email"
@@ -19,10 +27,8 @@ const Signin = ({error}) => {
               variant="outlined"
               label="Email"
               size="small"
-              required
-              InputLabelProps={{
-                shrink: true,
-              }}
+              value={email}
+              onChange={(e)=>setEmail(e.target.value)}
             />
             <TextField
               name="password"
@@ -31,10 +37,8 @@ const Signin = ({error}) => {
               variant="outlined"
               label="Password"
               size="small"
-              required
-              InputLabelProps={{
-                shrink: true,
-              }}
+              value={password}
+              onChange={(e)=>setPassword(e.target.value)}
             />
             <Button
               type="submit"
@@ -42,16 +46,31 @@ const Signin = ({error}) => {
               variant="contained"
               size="small"
               color="primary"
+              disabled={!(email && password)}
+              onClick={signin}
             >
               Sign In
             </Button>
             <Typography color="error" variant="body2">
               {error}
             </Typography>
-          </form>
+          </div>
         </div>
       </div>
     </div>
   );
 };
-export default connect()(Signin);
+
+const mapStateToProps = (state) =>{
+  return{
+    error: state.auth.message
+  }
+};
+
+const mapDispatchToProps = (dispatch) =>{
+  return{
+    startSignin: (user)=>dispatch(actionCreator.startSignin(user))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signin);
