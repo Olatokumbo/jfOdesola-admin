@@ -1,4 +1,4 @@
-import * as actionCreator from "../actions/auth";
+import * as actionCreator from "../actions/actionCreator";
 const initialState = {
     auth: false,
     message: null
