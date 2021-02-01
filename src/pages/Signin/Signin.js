@@ -1,7 +1,8 @@
 import React from "react";
 import { TextField, Button, Typography } from "@material-ui/core";
+import { connect } from "react-redux";
 import style from "./Signin.module.css";
-const Signin = () => {
+const Signin = ({error}) => {
   return (
     <div className={style.main}>
       <div className={style.signinContainer}>
@@ -45,7 +46,7 @@ const Signin = () => {
               Sign In
             </Button>
             <Typography color="error" variant="body2">
-              {/* {error} */}
+              {error}
             </Typography>
           </form>
         </div>
@@ -53,4 +54,4 @@ const Signin = () => {
     </div>
   );
 };
-export default Signin;
+export default connect()(Signin);

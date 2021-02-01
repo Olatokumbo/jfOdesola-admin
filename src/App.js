@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { BrowserRouter as Router, Switch} from "react-router-dom";
+import {PrivateRoute, PublicRoute} from "./hoc";
 import Signin from "./pages/Signin/Signin";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
@@ -10,11 +11,11 @@ const App = () =>{
     return(
         <Router>
             <Switch>
-                <Route path="/" exact component={Signin}/>
-                <Route path="/home" component={Home} />
-                <Route path="/about" component={About} />
-                <Route path="/faithlift" component={FaithLift} />
-                <Route path="/socials" component={Socials} />
+                <PublicRoute path="/" exact component={Signin}/>
+                <PrivateRoute path="/home" component={Home} />
+                <PrivateRoute path="/about" component={About} />
+                <PrivateRoute path="/faithlift" component={FaithLift} />
+                <PrivateRoute path="/socials" component={Socials} />
             </Switch>
         </Router>
     )
