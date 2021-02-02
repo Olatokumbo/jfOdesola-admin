@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
-import {authReducer, aboutReducer, faithLiftReducer} from "./store/reducers";
+import {authReducer, aboutReducer, faithLiftReducer, socialsReducer} from "./store/reducers";
 import { auth } from "./firebase/firebase";
 import * as actionTypes from "./store/actions/actionTypes";
 import App from "./App";
@@ -13,7 +13,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
   auth: authReducer,
   about: aboutReducer,
-  faithLift:  faithLiftReducer
+  faithLift:  faithLiftReducer,
+  socials: socialsReducer
 });
 
 const store = createStore(

@@ -12,7 +12,7 @@ const FaithLift = ({getFaithLift, editFaithLift, data}) => {
   const [channelLink, setChannelLink] = useState("");
   useEffect(()=>{
     getFaithLift();
-  })
+  },[getFaithLift])
   useEffect(()=>{
     setFaithLiftHeader1(data.faithLiftHeader1);
     setFaithLiftHeader2(data.faithLiftHeader2);
