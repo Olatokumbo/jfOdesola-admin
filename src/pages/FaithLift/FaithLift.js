@@ -1,13 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TextField, Typography,Button } from "@material-ui/core";
 import Navbar from "../../components/Navbar/Navbar";
+import { connect } from "react-redux"; 
+import * as actionCreator from "../../store/actions";
 import style from "./FaithLift.module.css";
 
-const FaithLift = () => {
-  const [header1, setHeader1] = useState("");
-  const [header2, setHeader2] = useState("");
-  const [card1, setCard1] = useState("");
-  const [card2, setCard2] = useState("");
+const FaithLift = ({getFaithLift, editFaithLift, data}) => {
+  const [faithLiftHeader1, setFaithLiftHeader1] = useState("");
+  const [faithLiftHeader2, setFaithLiftHeader2] = useState("");
+  const [playListLink, setPlayList] = useState("");
+  const [channelLink, setChannelLink] = useState("");
+  useEffect(()=>{
+    getFaithLift();
+  })
+  useEffect(()=>{
+    setFaithLiftHeader1(data.faithLiftHeader1);
+    setFaithLiftHeader2(data.faithLiftHeader2);
+    setPlayList(data.playListLink);
+    setChannelLink(data.channelLink)
+  }, [data, getFaithLift])
+
+  const updateFaithLiftDone = () =>{
+    editFaithLift({faithLiftHeader1, faithLiftHeader2, playListLink, channelLink})
+  }
   return (
     <div className={style.faithLift}>
       <Navbar />
@@ -16,51 +31,60 @@ const FaithLift = () => {
         <TextField
           className={style.input}
           variant="outlined"
-          label="Header 1"
-          name="header 1"
+          label="FaithLift Header 1"
+          name="faithLiftHeader1"
           multiline
           rows="3"
-          value={header1}
+          value={faithLiftHeader1}
           size="small"
-          onChange={(e) => setHeader1(e.target.value)}
+          onChange={(e) => setFaithLiftHeader1(e.target.value)}
         />
         <TextField
           className={style.input}
           variant="outlined"
-          label="Header 2"
-          name="header 2"
+          label="FaithLift Header 2"
+          name="faithLiftHeader2"
           multiline
           rows="3"
-          value={header2}
+          value={faithLiftHeader2}
           size="small"
-          onChange={(e) => setHeader2(e.target.value)}
+          onChange={(e) => setFaithLiftHeader2(e.target.value)}
         />
         <TextField
           className={style.input}
           variant="outlined"
-          label="Card 1"
-          name="card1"
-          multiline
-          rows="3"
-          value={card1}
+          label="YouTube Playlist Link"
+          name="playListLink"
+          value={playListLink}
           size="small"
-          onChange={(e) => setCard1(e.target.value)}
+          onChange={(e) => setPlayList(e.target.value)}
         />
         <TextField
           className={style.input}
           variant="outlined"
-          label="Card 2"
-          name="card2"
-          multiline
-          rows="3"
-          value={card2}
+          label="YouTube Channel Link"
+          name="channelLink"
+          value={channelLink}
           size="small"
-          onChange={(e) => setCard2(e.target.value)}
+          onChange={(e) => setChannelLink(e.target.value)}
         />
-        <Button className={style.btn} variant="contained" color="primary">Save</Button>
+        <Button className={style.btn} variant="contained" color="primary"  onClick={updateFaithLiftDone}>Save</Button>
       </div>
     </div>
   );
 };
 
-export default FaithLift;
+const mapStateToProps = (state) => {
+  return{
+    data: state.faithLift.faithLift
+  }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+  return{
+    getFaithLift: ()=>dispatch(actionCreator.fetchFaithLift()),
+    editFaithLift: (data)=>dispatch(actionCreator.updateFaithLift(data))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FaithLift);
