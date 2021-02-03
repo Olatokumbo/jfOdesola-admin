@@ -6,6 +6,7 @@ import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import FaithLift from "./pages/FaithLift/FaithLift";
 import Socials from "./pages/Socials/Socials";
+import Slideshow from "./pages/Slideshow/Slideshow";
 import "./App.css";
 const App = () =>{
     return(
@@ -16,6 +17,7 @@ const App = () =>{
                 <PrivateRoute path="/about" component={About} />
                 <PrivateRoute path="/faithlift" component={FaithLift} />
                 <PrivateRoute path="/socials" component={Socials} />
+                <PrivateRoute path="/slideshow" component={Slideshow} />
             </Switch>
         </Router>
     )

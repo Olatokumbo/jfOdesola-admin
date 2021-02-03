@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { TextField, Button } from "@material-ui/core";
-import Navbar from "../../components/Navbar/Navbar";
 import { connect } from "react-redux"; 
 import * as actionCreator from "../../store/actions";
 import style from "./Socials.module.css";
@@ -22,7 +21,6 @@ const Socials = ({getSocials, editSocials, data }) => {
   }
   return (
     <div socials>
-      <Navbar />
       <div className={style.content}>
         <form className={style.form}>
           <TextField

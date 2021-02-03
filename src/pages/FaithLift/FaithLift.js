@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { TextField, Typography,Button } from "@material-ui/core";
-import Navbar from "../../components/Navbar/Navbar";
 import { connect } from "react-redux"; 
 import * as actionCreator from "../../store/actions";
 import style from "./FaithLift.module.css";
@@ -25,7 +24,6 @@ const FaithLift = ({getFaithLift, editFaithLift, data}) => {
   }
   return (
     <div className={style.faithLift}>
-      <Navbar />
       <div className={style.content}>
         <Typography className={style.header}>FaithLift Section</Typography>
         <TextField

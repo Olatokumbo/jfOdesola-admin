@@ -14,7 +14,7 @@ const Navbar = ({logout}) => {
             Johnson Odesola (Admin)
           </Typography>
         </Link>
-        <Button variant="contained" color="secondary" onClick={logout}>
+        <Button variant="contained" color="primary" onClick={logout}>
           Logout
         </Button>
       </Toolbar>

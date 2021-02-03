@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { TextField, Button, Typography } from "@material-ui/core";
-import Navbar from "../../components/Navbar/Navbar";
 import * as actionCreator from "../../store/actions";
 import { connect } from "react-redux"; 
 import style from "./About.module.css";
@@ -27,7 +26,6 @@ const About = ({getAbout, editAbout, data}) => {
   }
   return (
     <div className={style.about}>
-      <Navbar />
       <div className={style.content}>
         <Typography className={style.header}>About Section</Typography>
         <TextField
