@@ -8,6 +8,17 @@
     margin: 0.5rem;
     background-color: rgb(37, 37, 37);
 }
+.imageContainer{
+    height: 8rem;
+    width: 100%;
+    /* background-color: limegreen; */
+}
+.imageContainer > img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    /* display: none; */
+}
 .action{
     margin-top: 0.2rem;
     display: flex;

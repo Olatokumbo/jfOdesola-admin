@@ -1,7 +1,10 @@
 import * as actionTypes from "../actions/actionTypes";
 const initialState = {
-  slideshow: {},
-  message: null
+  slideshow: [],
+  message: null,
+  progress: 0,
+  successUpload: null,
+  loading:false
 };
 
 const slideShowReducer = (state = initialState, action) => {
@@ -11,10 +14,37 @@ const slideShowReducer = (state = initialState, action) => {
         ...state,
         slideshow: action.slideshow,
       };
-    case actionTypes.UPDATE_SLIDESHOW_SUCCESS:
+      case actionTypes.UPLOAD_SLIDESHOW:
+        return {
+          ...state,
+          loading: true
+        };
+    case actionTypes.PROGRESS:
       return {
         ...state,
-        message:action.message,
+        progress: action.progress,
+      };
+    case actionTypes.ADD_SLIDESHOW_SUCCESS:
+      return {
+        ...state,
+        successUpload: true,
+        loading: false,
+        message: action.message,
+      };
+    case actionTypes.ADD_SLIDESHOW_FAILED:
+      return {
+        ...state,
+        successUpload: false,
+        loading:  false,
+        message: action.message,
+      };
+    case actionTypes.RESET:
+      return {
+        ...state,
+        loading: false,
+        successUpload: null,
+        message: null,
+        progress: 0,
       };
     default:
       return state;
