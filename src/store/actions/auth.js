@@ -4,6 +4,7 @@ import * as actionTypes from "./actionTypes";
 export const startSignin = (credentials) =>{
     console.log(credentials);
     return (dispatch)=>{
+        dispatch({type:actionTypes.PROCESSING})
         auth
         .signInWithEmailAndPassword(credentials.email, credentials.password)
         .then((data)=>{

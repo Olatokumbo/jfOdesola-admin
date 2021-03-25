@@ -2,8 +2,9 @@ import React, {useState} from "react";
 import { TextField, Button, Typography } from "@material-ui/core";
 import { connect } from "react-redux";
 import * as actionCreator from "../../store/actions";
+import CircularProgress from '@material-ui/core/CircularProgress';
 import style from "./Signin.module.css";
-const Signin = ({error, startSignin}) => {
+const Signin = ({error, startSignin, isLoading}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] =useState(""); 
 
@@ -51,6 +52,7 @@ const Signin = ({error, startSignin}) => {
             >
               Sign In
             </Button>
+            { isLoading ? <CircularProgress/> : <div></div>}
             <Typography color="error" variant="body2">
               {error}
             </Typography>
@@ -63,7 +65,8 @@ const Signin = ({error, startSignin}) => {
 
 const mapStateToProps = (state) =>{
   return{
-    error: state.auth.message
+    error: state.auth.message,
+    isLoading: state.auth.isLoading
   }
 };
 

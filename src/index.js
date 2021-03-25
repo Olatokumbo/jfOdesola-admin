@@ -24,15 +24,16 @@ const store = createStore(
 );
 
 auth.onAuthStateChanged((user) => {
-  if (user) {
-    console.log("Signed in", user);
-    store.dispatch({ type: actionTypes.SIGNIN_SUCCESS, auth: true });
     ReactDOM.render(
       <Provider store={store}>
         <App />
       </Provider>,
       document.getElementById("root")
     );
+  if (user) {
+    console.log("Signed in", user);
+    store.dispatch({ type: actionTypes.SIGNIN_SUCCESS, auth: true });
+    
   } else {
     console.log("Signed out");
   }
