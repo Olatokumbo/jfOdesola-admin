@@ -6,7 +6,7 @@ const MenuCard = ({ title, icon, url }) => {
   const TheIcon = icon;
   return (
     <Link to={url} style={{display: "contents"}}>
-      <Grid item  xs={12} component={Card} className={style.card}>
+      <Grid item  xs={12} md={3} component={Card} className={style.card}>
         <CardContent className={style.cardContent}>
           <Typography className={style.title}>{title}</Typography>
           <TheIcon className={style.icon} />

@@ -1,6 +1,7 @@
 .card{
     margin:1rem !important; 
     height: 10rem !important;
+    /* width: 12rem !important; */
 }
 .cardContent{
     text-align: center;

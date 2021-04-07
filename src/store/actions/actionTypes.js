@@ -27,3 +27,6 @@ export const PROGRESS = "PROGRESS";
 export const ADD_SLIDESHOW_SUCCESS = "ADD_SLIDESHOW_SUCCESS"; 
 export const ADD_SLIDESHOW_FAILED = "ADD_SLIDESHOW_FAILED";
 export const RESET= "RESET"; 
+
+// Articles
+export const FETCH_ARTICLES = "FETCH_ARTICLES";
