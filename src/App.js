@@ -8,6 +8,8 @@ import FaithLift from "./pages/FaithLift/FaithLift";
 import Socials from "./pages/Socials/Socials";
 import Slideshow from "./pages/Slideshow/Slideshow";
 import Articles from "./pages/Articles/Articles";
+import NewArticle from "./pages/NewArticle/NewArticle";
+
 import "./App.css";
 const App = () => {
   return (
@@ -20,6 +22,7 @@ const App = () => {
         <PrivateRoute path="/socials" component={Socials} />
         <PrivateRoute path="/slideshow" component={Slideshow} />
         <PrivateRoute path="/articles" component={Articles} />
+        <PrivateRoute path="/new/article" component={NewArticle} />
       </Switch>
     </Router>
   );

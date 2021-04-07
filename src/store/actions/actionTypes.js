@@ -30,3 +30,7 @@ export const RESET= "RESET";
 
 // Articles
 export const FETCH_ARTICLES = "FETCH_ARTICLES";
+export const UPLOAD_ARTICLE = "UPLOAD_ARTICLE";
+export const FETCH_ARTICLE_INFO = "FETCH_ARTICLE_INFO";
+export const ADD_ARTICLE_SUCCESS = "ADD_ARTICLE_SUCCESS";
+export const ADD_ARTICLE_FAILED = "ADD_ARTICLE_FAILED"; 

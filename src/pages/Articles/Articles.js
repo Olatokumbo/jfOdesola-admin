@@ -24,7 +24,7 @@ const Articles = ({ getArticles, articles }) => {
   return (
     <div className={style.articles}>
       <div className={style.content}>
-        <Typography className={style.header}>About Section</Typography>
+        <Typography className={style.header}>Articles Section</Typography>
         <Link to="/new/article">
           <Button variant="contained" size="small" color="primary">
             Add New Article
@@ -46,7 +46,7 @@ const Articles = ({ getArticles, articles }) => {
                     {article.title}
                   </TableCell>
                   <TableCell align="center">
-                    {moment(article.publishDate.toDate()).format(
+                    {moment(article?.publishDate?.toDate()).format(
                       "MM/DD/YYYY"
                     )}
                   </TableCell>
