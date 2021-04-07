@@ -9,6 +9,7 @@ import Socials from "./pages/Socials/Socials";
 import Slideshow from "./pages/Slideshow/Slideshow";
 import Articles from "./pages/Articles/Articles";
 import NewArticle from "./pages/NewArticle/NewArticle";
+import ArticleInfo from "./pages/ArticleInfo/ArticleInfo";
 
 import "./App.css";
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
         <PrivateRoute path="/slideshow" component={Slideshow} />
         <PrivateRoute path="/articles" component={Articles} />
         <PrivateRoute path="/new/article" component={NewArticle} />
+        <PrivateRoute path="/article/:id" component={ArticleInfo} />
       </Switch>
     </Router>
   );

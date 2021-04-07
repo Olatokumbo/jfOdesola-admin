@@ -17,6 +17,18 @@ export const fetchArticles = () => {
   };
 };
 
+export const fetchArticleInfo = (id) => {
+  return (dispatch) => {
+    firestore
+      .collection("articles")
+      .doc(id)
+      .get()
+      .then((snapshot) => {
+        dispatch({type: actionTypes.FETCH_ARTICLE_INFO, articleInfo: snapshot.data()})
+      });
+  };
+};
+
 export const updateArticleInfo = (data) => {
   return () => {
     firestore

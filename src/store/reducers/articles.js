@@ -4,6 +4,7 @@ const initialState = {
   successUpload: null,
   loading: false,
   message: null,
+  articleInfo: null
 };
 
 const articleReducers = (state = initialState, action) => {
