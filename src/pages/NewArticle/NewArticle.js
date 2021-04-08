@@ -104,6 +104,7 @@ const NewArticle = ({addArticle, isLoading}) => {
             </Button>
           </form>
         </div>
+        {isLoading ? <CircularProgress /> : <div></div>}
         <Button
         variant="contained"
         className={style.saveBtn}

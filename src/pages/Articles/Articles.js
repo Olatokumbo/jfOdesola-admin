@@ -20,7 +20,7 @@ import style from "./Articles.module.css";
 const Articles = ({ getArticles, articles }) => {
   useEffect(() => {
     getArticles();
-  }, []);
+  }, [getArticles]);
   return (
     <div className={style.articles}>
       <div className={style.content}>

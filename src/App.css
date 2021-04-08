@@ -6,6 +6,6 @@
 
 a {
   text-decoration: none;
-  width: inherit;
+  width: fit-content;
   height: fit-content;
 }
